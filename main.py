@@ -9,14 +9,12 @@ import requests
 import time
 import schedule
 
-# Telegram bilgileri
-TOKEN = "7718296538:AAHlK0zdJHU6bfPAffx6VcuZ4ZzJXUH628o"
-CHAT_ID = "1282625183"
+import os  # bu satırı en üstte olsun
 
-# Kullanıcı giriş bilgileri
-EMAIL = "berkayyukunc@std.iyte.edu.tr"
-PASSWORD = "Berkay907"  # buraya kendi şifreni yaz
-
+TOKEN = os.environ.get("TOKEN")
+CHAT_ID = os.environ.get("CHAT_ID")
+EMAIL = os.environ.get("EMAIL")
+PASSWORD = os.environ.get("PASSWORD")
 def send_telegram_message(message):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
     data = {"chat_id": CHAT_ID, "text": message}
